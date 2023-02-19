@@ -4,39 +4,27 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Video;
 
-public class TvPuzzle : MonoBehaviour
+public class MashovPuzzle : MonoBehaviour
 {
     [Range(1000, 9999)]
-    public int puzzleChannel = 5655;
-    
-    [Range(10000, 99999)]
     public int teacherCode = 44444;
     
-    public TextMeshProUGUI channelText;
-    public TextMeshProUGUI puzzleAnswerText;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI codeText;
     
     private readonly List<int> _enteredNumbers = new List<int>();
     private bool _solved = false;
-    private VideoPlayer _tvVideo;
     
-    void Start()
-    {
-        // clear channel and answer text
-        channelText.text = "";
-        puzzleAnswerText.text = "";
-        _tvVideo = GetComponentInChildren<VideoPlayer>();
-    }
-    
-    public void SetChannelNumber(int enteredNum)
+
+    public void EnterCode(int enteredNum)
     {
         if (!_solved)
         {
             _enteredNumbers.Add(enteredNum);
             var numbersString = "";
         
-            for (int j = 4 -_enteredNumbers.Count; j > 0; j--)
+            for (int j = 5 -_enteredNumbers.Count; j > 0; j--)
             {
                 numbersString += "_ ";
             }
@@ -45,36 +33,31 @@ public class TvPuzzle : MonoBehaviour
             {
                 numbersString += _enteredNumbers[i].ToString() + " ";
             }
-            channelText.text = numbersString;
+            codeText.text = numbersString;
 
             CheckIfSolved(numbersString);
         }
         
     }
-
+    
     private void CheckIfSolved(string numbersString)
     {
-        if (_enteredNumbers.Count == 4)
+        if (_enteredNumbers.Count == 5)
         {
             var clearedNumberString = Regex.Replace(numbersString, @"\s+", "");
-            var channel = Int32.Parse(clearedNumberString);
-            if (channel == puzzleChannel)
+            var enteredCode = Int32.Parse(clearedNumberString);
+            if (enteredCode == teacherCode)
             {
                 _solved = true;
-                ShowSolution();
+                codeText.text = "";
+                descriptionText.text = "It's done \n start vacation mode";
             }
             else
             {
-                channelText.text = "";
+                codeText.text = "_ _ _ _ _";
+                descriptionText.text = "Wrong code \n try again";
                 _enteredNumbers.Clear();
             }
         }
-    }
-    
-    private void ShowSolution()
-    {
-        channelText.text = "";
-        _tvVideo.Stop();
-        puzzleAnswerText.text = "Course code is \n " + teacherCode;
     }
 }
