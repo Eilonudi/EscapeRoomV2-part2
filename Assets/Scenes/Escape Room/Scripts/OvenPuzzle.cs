@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class OvenPuzzle : MonoBehaviour
 {
     public Transform pizzaTransform;
+    public GameObject startButton;
+    public TextMeshProUGUI ovenTimer;
     private Collider _ovenCollider;
 
     private bool _isColliding = false;
@@ -13,6 +17,7 @@ public class OvenPuzzle : MonoBehaviour
     void Start()
     {
         _ovenCollider = GetComponent<Collider>();
+        startButton.GetComponentInChildren<ButtonVR>().onRelease.AddListener(TurnOnOven);
     }
 
     // Update is called once per frame
@@ -23,9 +28,11 @@ public class OvenPuzzle : MonoBehaviour
 
     void TurnOnOven()
     {
+        Debug.Log("pressed");
         if (_isColliding)
         {
-            
+            startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Stop";
+            ovenTimer.text = "C56:78";
         }
     }
 }
