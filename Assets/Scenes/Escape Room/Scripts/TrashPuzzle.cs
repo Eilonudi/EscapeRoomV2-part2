@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TrashPuzzle : MonoBehaviour
 {
     public int trashItems = 5;
     public GameObject door;
+    public TextMeshProUGUI doorSignText;
     private Collider _trashcanCollider;
     private List <GameObject> _currentCollisions = new List <GameObject> ();
     private bool _solved = false;
@@ -45,6 +47,7 @@ public class TrashPuzzle : MonoBehaviour
         {
             _solved = true;
             door.GetComponent<Animator>().Play("Opening");
+            doorSignText.text = "Bye Bye";
         }
     }
 }
