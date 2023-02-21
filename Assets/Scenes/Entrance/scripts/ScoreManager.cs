@@ -25,17 +25,23 @@ public class ScoreData
 public class ScoreManager : MonoBehaviour
 {
     public ScoreData scoreData;
+    private static ScoreManager _instance;
 
     private const string ScoresStorageKey = "PlayersScores";
     
-    public void AddScore(Score score)
+    public static void AddScore(Score score)
     {
-        scoreData.scores.Add(score);
+        _instance.scoreData.scores.Add(score);
     }
 
-    public void AddScore(string name, int startTimeInMilliseconds, int endTimeInMilliseconds)
+    public static void AddScore(string name, double startTimeInMilliseconds, double endTimeInMilliseconds)
     {
-        scoreData.scores.Add(new Score(name, endTimeInMilliseconds - startTimeInMilliseconds));
+        _instance.scoreData.scores.Add(new Score(name, endTimeInMilliseconds - startTimeInMilliseconds));
+    }
+
+    public void ClearScores()
+    {
+        PlayerPrefs.SetString(ScoresStorageKey, "{}");
     }
 
     public IOrderedEnumerable<Score> GetOrderedScores()
@@ -47,6 +53,8 @@ public class ScoreManager : MonoBehaviour
     {
         var jsonScores = PlayerPrefs.GetString(ScoresStorageKey, "{}");
         scoreData = JsonUtility.FromJson<ScoreData>(jsonScores);
+        _instance = this;
+        ClearScores();
     }
 
     private void OnDestroy()

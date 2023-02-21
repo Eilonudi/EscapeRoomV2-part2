@@ -10,9 +10,9 @@ using UnityEngine;
 public class Score
 {
     public string name;
-    public float time;
+    public double time;
 
-    public Score(string name, float time)
+    public Score(string name, double time)
     {
         this.name = name;
         this.time = time;

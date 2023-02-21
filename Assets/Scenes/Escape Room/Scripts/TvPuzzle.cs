@@ -62,6 +62,7 @@ public class TvPuzzle : MonoBehaviour
             {
                 _solved = true;
                 ShowSolution();
+                GameManager.UpdateGameState(GameState.CompletedTask);
             }
             else
             {

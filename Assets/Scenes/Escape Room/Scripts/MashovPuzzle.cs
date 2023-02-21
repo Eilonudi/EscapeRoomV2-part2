@@ -51,6 +51,7 @@ public class MashovPuzzle : MonoBehaviour
                 _solved = true;
                 codeText.text = "";
                 descriptionText.text = "It's done \n start vacation mode";
+                GameManager.UpdateGameState(GameState.CompletedTask);
             }
             else
             {

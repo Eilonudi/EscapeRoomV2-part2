@@ -27,11 +27,11 @@ public class OvenPuzzle : MonoBehaviour
 
     void TurnOnOven()
     {
-        Debug.Log("pressed");
         if (_isColliding)
         {
             startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Stop";
-            ovenTimer.text = "C56:78";
+            ovenTimer.text = "C55:55";
+            GameManager.UpdateGameState(GameState.CompletedTask);
         }
     }
 }

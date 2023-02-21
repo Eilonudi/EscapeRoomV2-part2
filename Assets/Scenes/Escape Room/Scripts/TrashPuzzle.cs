@@ -13,9 +13,20 @@ public class TrashPuzzle : MonoBehaviour
     private List <GameObject> _currentCollisions = new List <GameObject> ();
     private bool _solved = false;
     
+
     void Start()
     {
         _trashcanCollider = GetComponent<Collider>();
+    }
+    
+    private void Awake()
+    {
+        GameManager.onFinishedTasks += OpenDoor;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onFinishedTasks -= OpenDoor;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -31,7 +42,7 @@ public class TrashPuzzle : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         // Remove the GameObject collided with from the list.
-        _currentCollisions.Remove (col.gameObject);
+        _currentCollisions.Remove(col.gameObject);
     }
 
     private void ValidateSolved()
@@ -46,8 +57,13 @@ public class TrashPuzzle : MonoBehaviour
         if (trashCount == trashItems)
         {
             _solved = true;
-            door.GetComponent<Animator>().Play("Opening");
-            doorSignText.text = "Bye Bye";
+            GameManager.UpdateGameState(GameState.CompletedTask);
         }
+    }
+
+    private void OpenDoor()
+    {
+        door.GetComponent<Animator>().Play("Opening");
+        doorSignText.text = "Bye Bye";
     }
 }

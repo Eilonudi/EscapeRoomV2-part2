@@ -23,10 +23,6 @@ public class ScoreUI : MonoBehaviour
 
     void Start()
     {
-        scoreManager.AddScore(new Score("udi", 153));
-        scoreManager.AddScore(new Score("Noam", 153));
-        scoreManager.AddScore(new Score("Shelly", 153));
-        
         // Clean the active text
         placeText.text = "";
         nameText.text = "";

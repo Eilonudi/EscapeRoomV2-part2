@@ -19,6 +19,7 @@ public class GameMenuManeger : MonoBehaviour
     {
         // hide the menu when first initialized
         menu.SetActive(false);
+        
     }
 
     
@@ -38,12 +39,12 @@ public class GameMenuManeger : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        GameManager.UpdateGameState(GameState.Exit);
     }
     
     public void StartGame()
     {
-        // SceneManager.LoadScene("Escape Room");
+        GameManager.UpdateGameState(GameState.StartGame);
     }
     
     public void toggleSuggestions()
