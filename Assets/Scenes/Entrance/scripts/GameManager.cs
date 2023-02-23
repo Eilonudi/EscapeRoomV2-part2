@@ -9,15 +9,16 @@ public class GameManager : MonoBehaviour
 
     public static event Action onFinishedTasks;   
     private static GameManager _instance;
-    private static double _startTime;
     private static int _completedTaskCount = 0;
 
     void Awake()
-    {
-        _instance = this;
+    {   
+        if (GameManager._instance == null) 
+        {
+            GameManager._instance = this;
+        }        
     }
-
-
+    
     public static void UpdateGameState(GameState state)
     {
         switch (state)
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        _startTime = Time.deltaTime;
+        _completedTaskCount = 0;
         SceneManager.LoadScene("Escape Room");
     }
     
@@ -53,9 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Escaped()
     {
-        var name = Environment.UserName;
-        Debug.Log(_startTime - Time.deltaTime);
-        ScoreManager.AddScore(name, Time.deltaTime, _startTime);
+        ScoreManager.AddScore(Environment.UserName, Time.timeSinceLevelLoad);
         SceneManager.LoadScene("Enterance");
     }
 

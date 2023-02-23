@@ -34,11 +34,17 @@ public class ScoreUI : MonoBehaviour
 
     void UpdateScore()
     {
-        if (_activeScoreIndex > _scores.Count || _activeScoreIndex > 2)
+        // No Scores yet
+        if (_scores.Count == 0)
+        {
+            return;
+        }
+        
+        if (_activeScoreIndex >= _scores.Count || _activeScoreIndex > 2)
         {
             _activeScoreIndex = 0;
         }
-        
+
         var score = _scores[_activeScoreIndex];
         placeText.text = "#" + (_activeScoreIndex+1).ToString();
         nameText.text = score.name;

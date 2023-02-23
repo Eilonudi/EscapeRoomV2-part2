@@ -64,7 +64,7 @@ public class UserCameraCanvasManager : MonoBehaviour
         // measuring interval ended, so we could iterate through the suggestions
         if (_suggestionsTime > SuggestionsUpdateInterval)
         {
-            if (suggestionsText != null)
+            if (suggestionsText != null && _suggestions.Count > 0)
             {
                 // Update the Suggestions Text
                 if (_suggestionIndex >= _suggestions.Count)
