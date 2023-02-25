@@ -13357,10 +13357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkthroughCanvas: {fileID: 890025968}
-  firstTaskAnimator: {fileID: 0}
-  secondTaskAnimator: {fileID: 0}
-  thirdTaskAnimator: {fileID: 0}
-  forthTaskAnimator: {fileID: 0}
+  xrRig: {fileID: 1840550897835122718}
 --- !u!4 &341252158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4843823420548424326, guid: eca1c14fa4f815e4d96961d241f47cfd,
@@ -23538,7 +23535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 648320675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337820732}
+        m_TargetAssemblyTypeName: GameWalkthourgh, Assembly-CSharp
+        m_MethodName: StartSecondTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &648320675
 MonoBehaviour:
   m_ObjectHideFlags: 0

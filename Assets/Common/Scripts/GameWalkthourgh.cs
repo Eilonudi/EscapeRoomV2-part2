@@ -5,10 +5,7 @@ using UnityEngine;
 public class GameWalkthourgh : MonoBehaviour
 {
     public GameObject walkthroughCanvas;
-    public Animator firstTaskAnimator;
-    public Animator secondTaskAnimator;
-    public Animator thirdTaskAnimator;
-    public Animator forthTaskAnimator;
+    public GameObject xrRig;
     
     private int lastCompletedTaskNumber = 0;
     
@@ -23,37 +20,10 @@ public class GameWalkthourgh : MonoBehaviour
         {
             walkthroughCanvas.SetActive(false);
         }
-        
-        // stop all animations
-        firstTaskAnimator.StopPlayback();
-        secondTaskAnimator.StopPlayback();
-        thirdTaskAnimator.StopPlayback();
-        forthTaskAnimator.StopPlayback();
-
     }
 
-    private void StartTaskAnimation()
+    public void StartSecondTask()
     {
-        walkthroughCanvas.SetActive(false);
-        switch (lastCompletedTaskNumber)
-        {
-            case 0:
-                firstTaskAnimator.StartPlayback();
-                // disable first button
-                break;
-            case 2: 
-                secondTaskAnimator.StartPlayback();
-                // disable second button
-                break;
-            case 3: 
-                thirdTaskAnimator.StartPlayback();
-                // disable third button
-                break;
-            case 4: 
-                forthTaskAnimator.StartPlayback();
-                // disable forth button
-                break;
-        }
-        
+        xrRig.GetComponent<Animator>().Play("CamMoveTV");
     }
 }
