@@ -49,6 +49,12 @@ public class GameWalkthourgh : MonoBehaviour
     private void ThrowToTrash()
     {
         trash.GetComponent<Animator>().Play("TrashToGarbage");
+        Invoke("GoOut", 3.0f);
+    }
+
+    private void GoOut()
+    {
+        xrRig.GetComponent<Animator>().Play("GoOut");
     }
 
     private void InitializeBtnListiners()
