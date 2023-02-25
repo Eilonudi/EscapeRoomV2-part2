@@ -6,6 +6,7 @@ public class GameWalkthourgh : MonoBehaviour
 {
     public GameObject walkthroughCanvas;
     public GameObject xrRig;
+    public GameObject trash;
     
     private int lastCompletedTaskNumber = 0;
     
@@ -35,5 +36,11 @@ public class GameWalkthourgh : MonoBehaviour
     public void StartForthTask()
     {
         xrRig.GetComponent<Animator>().Play("CamMoveDoorSign");
+        Invoke("ThrowToTrash", 2.5f);
+    }
+
+    private void ThrowToTrash()
+    {
+        trash.GetComponent<Animator>().Play("TrashToGarbage");
     }
 }
