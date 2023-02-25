@@ -25,7 +25,7 @@ public class OvenPuzzle : MonoBehaviour
         _isColliding = _ovenCollider.bounds.Contains(pizzaTransform.position);
     }
 
-    void TurnOnOven()
+    public void TurnOnOven()
     {
         if (_isColliding)
         {
