@@ -38727,6 +38727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4086183816566013596, guid: cd4ca976dbf626549971e19d7ef53367,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086183816566013596, guid: cd4ca976dbf626549971e19d7ef53367,
+        type: 3}
       propertyPath: m_Center.x
       value: 0.010450959
       objectReference: {fileID: 0}
@@ -48088,7 +48093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528477828364640, guid: bfa7e8189ab181843b9ac106678a628a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.414
+      value: 6.802
       objectReference: {fileID: 0}
     - target: {fileID: 4528477828364640, guid: bfa7e8189ab181843b9ac106678a628a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -76936,8 +76941,8 @@ MonoBehaviour:
   trashItems: 5
   door: {fileID: 1466521625}
   doorSignText: {fileID: 1264552339}
---- !u!65 &2004528978
-BoxCollider:
+--- !u!64 &2004528982
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -76946,9 +76951,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32223946, y: 0.4921287, z: 0.4388262}
-  m_Center: {x: 0, y: 0.24606438, z: -0.000000014901161}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 86007785392455622, guid: 34e386a75bb8feb4aa0f48b512cbb268, type: 3}
 --- !u!1001 &2007237073
 PrefabInstance:
   m_ObjectHideFlags: 0
