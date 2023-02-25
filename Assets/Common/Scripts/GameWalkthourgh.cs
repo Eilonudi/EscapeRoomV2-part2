@@ -16,8 +16,12 @@ public class GameWalkthourgh : MonoBehaviour
     {
         if (Application.isEditor)
         {
-            print("We are running this from inside of the editor!");
+            Debug.Log("We are running this from inside of the editor!");
             walkthroughCanvas.SetActive(true);
+            firstTaskBtn.interactable = true;
+            secondTaskBtn.interactable = false;
+            thridTaskBtn.interactable = false;
+            forthTaskBtn.interactable = false;
             InitializeBtnListiners();
         }
         else
