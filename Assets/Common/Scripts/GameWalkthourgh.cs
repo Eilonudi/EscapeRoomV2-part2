@@ -8,6 +8,7 @@ public class GameWalkthourgh : MonoBehaviour
     public GameObject walkthroughCanvas;
     public GameObject xrRig;
     public GameObject trash;
+    public GameObject firstTask;
     public Button firstTaskBtn;
     public Button secondTaskBtn;
     public Button thridTaskBtn;
@@ -24,12 +25,18 @@ public class GameWalkthourgh : MonoBehaviour
                 secondTaskBtn.interactable = false;
                 thridTaskBtn.interactable = false;
                 forthTaskBtn.interactable = false;
-                InitializeBtnListiners();   
+                InitializeBtnListiners();
+                xrRig.GetComponent<Animator>().enabled = true;
+                firstTask.GetComponent<Animator>().enabled = true;
+                trash.GetComponent<Animator>().enabled = true;
             }
         }
         else
         {
             walkthroughCanvas.SetActive(false);
+            xrRig.GetComponent<Animator>().enabled = false;
+            firstTask.GetComponent<Animator>().enabled = false;
+            trash.GetComponent<Animator>().enabled = false;
         }
     }
 

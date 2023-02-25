@@ -13404,6 +13404,7 @@ MonoBehaviour:
   walkthroughCanvas: {fileID: 890025968}
   xrRig: {fileID: 1840550897835122718}
   trash: {fileID: 761274471}
+  firstTask: {fileID: 1246413318}
   firstTaskBtn: {fileID: 971574856}
   secondTaskBtn: {fileID: 648320674}
   thridTaskBtn: {fileID: 591307890}
@@ -27773,7 +27774,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761274471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f6c945843413e6944bee61faa7b68914, type: 2}
   m_CullingMode: 0
@@ -45648,7 +45649,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246413318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 784fccebd50ecbf4d84d8a77dd83cfcc, type: 2}
   m_CullingMode: 0
@@ -90901,7 +90902,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840550897835122718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4c2f5447ddcda274abdcefd2347794d5, type: 2}
   m_CullingMode: 0
