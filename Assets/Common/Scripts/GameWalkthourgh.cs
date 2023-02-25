@@ -31,4 +31,9 @@ public class GameWalkthourgh : MonoBehaviour
     {
         xrRig.GetComponent<Animator>().Play("CamMoveComputer");
     }
+    
+    public void StartForthTask()
+    {
+        xrRig.GetComponent<Animator>().Play("CamMoveDoorSign");
+    }
 }
