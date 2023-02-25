@@ -8078,7 +8078,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 192727142}
   m_OnClick:
     m_PersistentCalls:
@@ -13404,6 +13404,10 @@ MonoBehaviour:
   walkthroughCanvas: {fileID: 890025968}
   xrRig: {fileID: 1840550897835122718}
   trash: {fileID: 761274471}
+  firstTaskBtn: {fileID: 971574856}
+  secondTaskBtn: {fileID: 648320674}
+  thridTaskBtn: {fileID: 591307890}
+  forthTaskBtn: {fileID: 192727141}
 --- !u!4 &341252158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4843823420548424326, guid: eca1c14fa4f815e4d96961d241f47cfd,
@@ -21331,7 +21335,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 591307891}
   m_OnClick:
     m_PersistentCalls:
@@ -23653,7 +23657,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 648320675}
   m_OnClick:
     m_PersistentCalls:
