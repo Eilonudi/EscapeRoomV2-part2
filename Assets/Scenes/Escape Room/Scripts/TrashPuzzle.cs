@@ -32,7 +32,6 @@ public class TrashPuzzle : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         // Add the GameObject collided with to the list.
-        Debug.Log("num of collision - " + _currentCollisions.Count);
         _currentCollisions.Add(col.gameObject);
         if (!_solved && _currentCollisions.Count >= trashItems)
         { 
@@ -43,7 +42,6 @@ public class TrashPuzzle : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         // Remove the GameObject collided with from the list.
-        Debug.Log("something has existed");
         _currentCollisions.Remove(col.gameObject);
     }
 

@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
     private void CompletedTask()
     {
         _completedTaskCount++;
-        Debug.Log("num of completed tasks - " + _completedTaskCount);
         if (_completedTaskCount == 4)
         {
             onFinishedTasks?.Invoke();
