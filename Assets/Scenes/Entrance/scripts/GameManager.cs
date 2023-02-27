@@ -9,16 +9,26 @@ public class GameManager : MonoBehaviour
 
     public static event Action onFinishedTasks;   
     private static GameManager _instance;
-    private static int _completedTaskCount = 0;
+    private int _completedTaskCount = 0;
+    private TrialLogger _trialLogger;
 
     void Awake()
-    {   
-        if (GameManager._instance == null) 
+    {
+        if ( _instance != null && _instance != this )
         {
-            GameManager._instance = this;
-        }        
+            Destroy(gameObject);
+            return;
+        }
+ 
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    
+
+    private void Start()
+    {
+        _trialLogger = GetComponent<TrialLogger>();
+    }
+
     public static void UpdateGameState(GameState state)
     {
         switch (state)
@@ -44,7 +54,17 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         _completedTaskCount = 0;
+        
+        List<string> columnList = new List<string>
+        {
+            "firstTaskCompleteTimeSinceStart", 
+            "secondTaskCompleteTimeSinceStart",
+            "thirdTaskCompleteTimeSinceStart",
+            "forthTaskCompleteTimeSinceStart",
+        };
+        _trialLogger.Initialize(Environment.UserName, columnList);
         SceneManager.LoadScene("Escape Room");
+        _trialLogger.StartTrial();
     }
     
     private void ExitGame()
@@ -61,9 +81,26 @@ public class GameManager : MonoBehaviour
     private void CompletedTask()
     {
         _completedTaskCount++;
+        switch (_completedTaskCount)
+        {
+            case 1:
+                _trialLogger.trial["firstTaskCompleteTimeSinceStart"] = Time.timeSinceLevelLoad.ToString();
+                break;
+            case 2:
+                _trialLogger.trial["secondTaskCompleteTimeSinceStart"] = Time.timeSinceLevelLoad.ToString();
+                break;
+            case 3:
+                _trialLogger.trial["thirdTaskCompleteTimeSinceStart"] = Time.timeSinceLevelLoad.ToString();
+                break;
+            case 4:
+                _trialLogger.trial["forthTaskCompleteTimeSinceStart"] = Time.timeSinceLevelLoad.ToString();
+                break;
+        }
+        
         if (_completedTaskCount == 4)
         {
             onFinishedTasks?.Invoke();
+            _trialLogger.EndTrial();
         }
     }
     
